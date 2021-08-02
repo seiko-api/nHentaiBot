@@ -199,8 +199,8 @@ break
 }
 	} catch (e) {
     e = String(e)
-    if (!e.includes("this.isZero")) {
-	console.log('Message : %s', color(e, 'green'))
+    if (!e.includes('this.isZero')) {
+	console.log('Message : %s', color(e, 'red'))
         }
 	}
 }
