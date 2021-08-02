@@ -176,7 +176,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
          case 'sc': 
          case 'src':
                 if (isGroup) return
-                reply(`Bot ini menggunakan sc : https://github.com/Nino-chan02/nHentaiBot`)
+                reply('Bot ini menggunakan sc : https://github.com/Nino-chan02/nHentaiBot')
                 break
          case 'jadibot':
                 jadibot(reply, nino, from)
