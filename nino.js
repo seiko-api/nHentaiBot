@@ -16,7 +16,7 @@ const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 
 let fakeimage = fs.readFileSync("./media/wpmobile.png")
 let setting = JSON.parse(fs.readFileSync('./setting.json'))
-let { prefix, owner, ownerNumber, ownerName, botName } = setting
+let { prefix, mode, ownerNumber, ownerName, botName } = setting
 
  module.exports = nino = async (nino, m) => {
 	try {
