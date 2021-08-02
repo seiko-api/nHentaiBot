@@ -46,14 +46,13 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
         responseButton = (type == 'listResponseMessage') ? mek.message.listResponseMessage.title : ''
 
         const reply = (teks) => {
-	      nino.sendMessage(from, teks, text, {quoted:mek, thumbnail: fakeimage})
+	      nino.sendMessage(from, teks, 'extendedTextMessage', {quoted:mek, thumbnail: fakeimage})
         }
        const sendKontak = (from, nomor, nama, org = "") => {
 	       const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:' + org + '\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
 	       nino.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: mek})
 }
       
-        colors = ['red', 'white', 'black', 'blue', 'yellow', 'green']
 
        if (!isGroup && budy.match(/^[a-z]/)) {
        reply("Just send me a doujin code");
