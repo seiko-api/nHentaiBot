@@ -185,7 +185,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
                 stopjadibot(reply)
                 break
          case 'listbot': case 'listjadibot':
-                let text = '「 *LIST JADIBOT* 」\n\n'
+                text = '「 *LIST JADIBOT* 」\n\n'
                 for(let i of listjadibot) {
                 text += `*Nomor* : ${i.jid.split('@')[0]}
 *Nama* : ${i.name}
