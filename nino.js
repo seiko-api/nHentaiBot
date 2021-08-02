@@ -23,7 +23,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
         if (!m.hasNewMessage) return
         mek = JSON.parse(JSON.stringify(m)).messages[0]
 		if (!mek.message || mek.key && mek.key.remoteJid == 'status@broadcast') return
-		let isBaileys = mek.key.id.startsWith('3EB0') && mek.key.id.length === 12
+		const isBaileys = mek.key.id.startsWith('3EB0') && mek.key.id.length === 12
 		if (isBaileys) return
 		mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 		const from = mek.key.remoteJid
