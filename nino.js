@@ -62,7 +62,7 @@ let { prefix, mode, ownerNumber, ownerName, botName } = setting
        // Nhentai
         if (!isGroup && budy.match(/^[0-9]/)) {
 	try {
-		res = await axios.get("http://lolhuman.herokuapp.com/api/nhentai/" + budy + "?apikey=genbotkey")
+		res = await axios.get("http://lolhuman.herokuapp.com/api/nhentai/" + budy + "?apikey=" + lolkey)
 		reply("Please wait, data is being processed");
 		data = res.data.result
 		caption = `${data.title_romaji}\n`
