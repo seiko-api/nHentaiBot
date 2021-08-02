@@ -48,12 +48,6 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
         const reply = (teks) => {
 	      nino.sendMessage(from, teks, text, {quoted:mek, thumbnail: fakeimage})
         }
-        const sendMess = (hehe, teks) => {
-           nino.sendMessage(hehe, teks, text)
-        }
-        const textImg = (teks) => {
-           return nino.sendMessage(from, teks, text, {quoted: mek, thumbnail: fs.readFileSync('./media/wpmobile.png')})
-        }
        const sendKontak = (from, nomor, nama, org = "") => {
 	       const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:' + org + '\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
 	       nino.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: mek})
@@ -187,7 +181,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
          case 'sc': 
          case 'src':
                 if (isGroup) return
-                textImg(`Bot ini menggunakan sc : https://github.com/Nino-chan02/nHentaiBot`)
+                reply(`Bot ini menggunakan sc : https://github.com/Nino-chan02/nHentaiBot`)
                 break
          case 'jadibot':
                 if (!isOwner) return
