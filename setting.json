@@ -1,9 +1,12 @@
 {
-     "prefix": "/",
-     "ownerNumber": ["62812788952860@s.whatsapp.net", "6288286421519@s.whatsapp.net"]
-     "sessionName": "nino",
-     "ownerName": "Nino",
-     "owner": "6288286421519",
-     "botName": "Nakano Nino",
-     "lolkey": "genbotkey"
+	"prefix": "X",
+	"ownerNumber": [
+		"62813828362494@s.whatsapp.net",
+		"6287774569531@s.whatsapp.net",
+	],
+	"sessionName": "nino",
+	"ownerName": "Human",
+	"owner": "62813828362494",
+	"botName": "Nhentai Bot",
+	"lolkey": "genbotkey"
 }
