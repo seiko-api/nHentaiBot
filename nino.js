@@ -38,7 +38,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
 		const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? botNumber : isGroup ? mek.participant : from
         const pushname = mek.key.fromMe ? nino.user.name : nino.contacts[sender].notify || nino.contacts[sender].vname || nino.contacts[sender].name || sender.split('@')[0]
-        const isOwner = mek.key.fromMe ? true : ownerNumber.includes(sender)
+        const isOwner = mek.key.fromMe || ownerNumber.includes(sender.split('@')[0])
       
         // here button function
         selectedButton = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
