@@ -74,7 +74,7 @@ let { prefix, mode, ownerNumber, ownerName, botName } = setting
 		caption += `Pages : ${data.info.pages}\n`
 		buttons = [{buttonId: `${prefix}buttons1 ${budy}`,buttonText:{displayText: `Download PDF`},type:1},{buttonId:`${prefix}buttons2 ${budy}`,buttonText:{displayText:'Read Online'},type:1}]
         fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(data.image[0]))
-        imageMsg = ( await nino.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+        imageMsg = ( await nino.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.ephemeralMessage.message.imageMessage
         buttonsMessage = {footerText:'Jangan Lupa Donasi Ya Kak ☕', imageMessage: imageMsg,
         contentText:`${caption}`,buttons,headerType:4}
         prep = await nino.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
