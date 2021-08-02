@@ -1,0 +1,35 @@
+{
+  "name": "NinoWangy",
+  "version": "1.0.0",
+  "description": "Gak Ada",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "nino",
+  "dependencies": {
+    "@adiwajshing/baileys": "^3.4.1",
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "figlet": "^1.5.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^10.0.0",
+    "moment-timezone": "^0.5.33",
+    "node-fetch": "^2.6.1",
+    "os": "^0.1.2",
+    "qrcode": "^1.4.4",
+    "spinnies": "^0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nino-chan02/NinoWangy"
+  },
+  "bugs": {
+    "url": "https://github.com/Nino-chan02/NinoWangy/issues"
+  },
+  "homepage": "https://github.com/Nino-chan02/NinoWangy#readme"
+}
