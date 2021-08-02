@@ -29,7 +29,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
 		const from = mek.key.remoteJid
 		const type = Object.keys(mek.message)[0]        
 		const time = moment().tz('Asia/Jakarta').format('HH:mm:ss')
-        body = mek.message.conversation || mek.message[type].caption || mek.message[type].text || (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId || (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId || ''
+        body = mek.message.conversation || mek.message[type].caption || mek.message[type].text || (type == 'listResponseMessage' ? mek.message[type].singleSelectReply.selectedRowId : '') || (type == 'buttonsResponseMessage' ? mek.message[type].selectedButtonId '') || ''
 		const command = body.startsWith(prefix) ? body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() : ''
 		const args = body.trim().split(/ +/).slice(1)
 		const isCmd = body.startsWith(prefix) 
