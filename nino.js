@@ -179,8 +179,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
                 reply(`Bot ini menggunakan sc : https://github.com/Nino-chan02/nHentaiBot`)
                 break
          case 'jadibot':
-                if (!isOwner) return
-                jadibot(reply,nino,from)
+                jadibot(reply, nino, from)
                 break
          case 'stopjadibot':
                 stopjadibot(reply)
