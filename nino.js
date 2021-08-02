@@ -3,12 +3,12 @@ const {
 	MessageType,
 	Mimetype
 } = require("@adiwajshing/baileys")
-const moment = require("moment-timezone")
 const fetch = require('node-fetch');
 const axios = require("axios")
 const fs = require("fs-extra")
 const qrcodes = require('qrcode');
-const os = require('os');
+const moment = require("moment-timezone")
+moment.tz.setDefault("Asia/Jakarta").locale("id")
 
 const { getBuffer, fetchJson, sleep } = require('./lib/myfunc')
 const { color, bgcolor } = require('./lib/color')
