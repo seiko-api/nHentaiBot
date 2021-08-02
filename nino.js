@@ -29,9 +29,8 @@ let { prefix, owner } = setting
 		const from = mek.key.remoteJid
 		const type = Object.keys(mek.message)[0]        
 		const time = moment().tz('Asia/Jakarta').format('HH:mm:ss')
-        body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : ""
-		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
-		const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+        body = msg.message.conversation || msg.message[type].caption || msg.message[type].text || (type == 'listResponseMessage') && msg.message[type].singleSelectReply.selectedRowId || (type == 'buttonsResponseMessage') && msg.message[type].selectedButtonId || ''
+		const command = body.startsWith(prefix) ? body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() : ''
 		const args = body.trim().split(/ +/).slice(1)
 		const arg = body.substring(body.indexOf(' ') + 1)
 		const ar = args.map((v) => v.toLowerCase())
