@@ -53,6 +53,9 @@ let { prefix, mode, ownerNumber, ownerName, botName } = setting
 	       nino.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: mek})
 }
       
+      if (mode == 'self' && !isOwner) return
+      if (mode == 'maintenance' && isCmd) return reply('Maaf ' + botName + ' sedang perbaikan, jadi tidak bisa membantu mu untuk saat ini')
+      
       if (!isGroup && !body.match(/^[0-9]/)) {
        reply("Just send me a doujin code");
 }
