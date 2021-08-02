@@ -187,11 +187,11 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
          case 'listbot': case 'listjadibot':
                 text = '「 *LIST JADIBOT* 」\n\n'
                 for(let i of listjadibot) {
-                text += `*Nomor* : ${i.jid.split('@')[0]}
-*Nama* : ${i.name}
-*Device* : ${i.phone.device_manufacturer}
-*Model* : ${i.phone.device_model}\n\n`
-}
+                text += `Nomor: ${i.jid.split('@')[0]}\n`
+                text += `Nama: ${i.name}\n`
+                text += `Device: ${i.phone.device_manufacturer}\n`
+                text += `Model: ${i.phone.device_model}\n\n`
+                }
                reply(text)
                break
 default:
