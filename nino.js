@@ -32,12 +32,8 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
         body = mek.message.conversation || mek.message[type].caption || mek.message[type].text || (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId || (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId || ''
 		const command = body.startsWith(prefix) ? body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() : ''
 		const args = body.trim().split(/ +/).slice(1)
-		const arg = body.substring(body.indexOf(' ') + 1)
-		const ar = args.map((v) => v.toLowerCase())
-		const argz = body.trim().split(/ +/).slice(1)
 		const isCmd = body.startsWith(prefix) 
         const q = args.join(' ')
-
         const botNumber = nino.user.jid
 		const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? botNumber : isGroup ? mek.participant : from
