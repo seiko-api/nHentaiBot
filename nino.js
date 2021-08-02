@@ -26,7 +26,6 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
 		let isBaileys = mek.key.id.startsWith('3EB0') && mek.key.id.length === 12
 		if (isBaileys) return
 		mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-		const content = JSON.stringify(mek.message)
 		const from = mek.key.remoteJid
 		const type = Object.keys(mek.message)[0]        
 		const time = moment().tz('Asia/Jakarta').format('HH:mm:ss')
