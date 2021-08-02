@@ -53,11 +53,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
 	       nino.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: mek})
 }
       
-
-       if (!isGroup && budy.match(/^[a-z]/)) {
-       reply("Just send me a doujin code");
-}
-      if (!isGroup && budy.match(/^[A-Z]/)) {
+      if (!isGroup && !body.match(/^[0-9]/)) {
        reply("Just send me a doujin code");
 }
        // Nhentai
