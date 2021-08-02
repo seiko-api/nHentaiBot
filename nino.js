@@ -41,10 +41,9 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
         const botNumber = nino.user.jid
 		const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? nino.user.jid : mek.key.remoteJid.endsWith('@g.us') ? mek.participant : mek.key.remoteJid
-        const conts = mek.key.fromMe ? nino.user.jid : nino.contacts[sender] || { notify: jid.replace(/@.+/, '') }
-        const pushname = mek.key.fromMe ? nino.user.name : conts.notify || conts.vname || conts.name || '-'
+        const pushname = mek.key.fromMe ? nino.user.name : nino.contacts[sender].notify || nino.contacts[sender].vname || nino.contacts[sender].name || sender.split('@')[0]
 		
-        const isOwner = ownerNumber.includes(sender)
+        const isOwner = mek.key.fromMe ? true : ownerNumber.includes(sender)
       
         // here button function
         selectedButton = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
