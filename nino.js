@@ -14,30 +14,21 @@ const { getBuffer, fetchJson, sleep } = require('./lib/myfunc')
 const { color, bgcolor } = require('./lib/color')
 const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 
-
 let fakeimage = fs.readFileSync("./media/wpmobile.png")
 let setting = JSON.parse(fs.readFileSync('./setting.json'))
+let { prefix, owner } = setting
 
-prefix = setting.prefix
-owner = setting.owner
-
-  
- module.exports = nino = async (nino, mek) => {
+ module.exports = nino = async (nino, m) => {
 	try {
-        if (!mek.hasNewMessage) return
-        mek = mek.messages.all()[0]
-		if (!mek.message) return
-		if (mek.key && mek.key.remoteJid == 'status@broadcast') return
+        if (!m.hasNewMessage) return
+        mek = JSON.parse(JSON.stringify(m)).messages[0]
+		if (!mek.message || mek.key && mek.key.remoteJid == 'status@broadcast') return
 		if (mek.key.id.startsWith('3EB0') && mek.key.id.length === 12) return
-		global.blocked
-		global.prefix
 		mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-		const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 		const content = JSON.stringify(mek.message)
 		const from = mek.key.remoteJid
 		const type = Object.keys(mek.message)[0]        
 		const time = moment().tz('Asia/Jakarta').format('HH:mm:ss')
-        const cmd = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
         body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'videoMessage') && mek.message[type].caption.startsWith(prefix) ? mek.message[type].caption : (type == 'extendedTextMessage') && mek.message[type].text.startsWith(prefix) ? mek.message[type].text : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : ""
 		budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 		const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
