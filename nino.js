@@ -196,10 +196,7 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
                reply(text)
                break
 default:
-if (isGroup && budy != undefined) {
-} else {
-console.log('[',color('TEXT','teal'),']',`Message : ${budy} From`, color(pushname))
-}		
+break
 }
 	} catch (e) {
     e = String(e)
