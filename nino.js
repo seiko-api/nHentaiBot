@@ -10,7 +10,7 @@ const qrcodes = require('qrcode');
 const moment = require("moment-timezone")
 moment.tz.setDefault("Asia/Jakarta").locale("id")
 
-const { getBuffer, fetchJson, sleep } = require('./lib/myfunc')
+const { getBuffer, fetchJson, sleep, jsonformat } = require('./lib/myfunc')
 const { color, bgcolor } = require('./lib/color')
 const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 
@@ -45,10 +45,6 @@ let { prefix, owner, ownerNumber, ownerName, botName } = setting
 
         responseButton = (type == 'listResponseMessage') ? mek.message.listResponseMessage.title : ''
 
-      
-        function jsonformat(string) {
-            return JSON.stringify(string, null, 2)
-        }
         const reply = (teks) => {
 	      nino.sendMessage(from, teks, text, {quoted:mek, thumbnail: fakeimage})
         }
